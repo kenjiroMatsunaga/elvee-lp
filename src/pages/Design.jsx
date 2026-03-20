@@ -118,9 +118,9 @@ const semiOrderSections = [
     images: ['/semi-menu-01.png'],
   },
   {
-    label: '席次票',
+    label: '席次表',
     labelEn: 'Seating List',
-    desc: 'ゲストのお席をわかりやすく案内する席次票。デザインに統一感を持たせます。',
+    desc: 'ゲストのお席をわかりやすく案内する席次表。デザインに統一感を持たせます。',
     images: ['/semi-seating-01.png'],
   },
 ]
@@ -243,7 +243,7 @@ export default function Design() {
               カスタムセミオーダー
             </h2>
             <p className="font-sans text-sm text-charcoal/60 text-center leading-loose mb-16 max-w-lg mx-auto">
-              表紙から席次票まで、各ページのデザインサンプルをご覧いただけます。
+              表紙から席次表まで、各ページのデザインサンプルをご覧いただけます。
             </p>
           </FadeInUp>
 
