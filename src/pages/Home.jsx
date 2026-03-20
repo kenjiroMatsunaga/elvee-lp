@@ -48,8 +48,8 @@ export default function Home() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           {/* Top */}
           <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-ivory via-ivory/60 to-transparent" />
-          {/* Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 md:h-56 bg-gradient-to-t from-ivory via-ivory/70 to-transparent" />
+          {/* Bottom — コンテンツエリアを完全に覆う強いグラデーション */}
+          <div className="absolute bottom-0 left-0 right-0 h-[70%] md:h-[55%] bg-gradient-to-t from-ivory via-ivory/90 to-transparent" />
           {/* Left — モバイルは細め */}
           <div className="absolute top-0 left-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-ivory to-transparent" />
           {/* Right — モバイルは細め */}
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
 
         {/* Overlay — 微細なテクスチャ感 */}
-        <div className="absolute inset-0 z-10 pointer-events-none bg-ivory/10" />
+        <div className="absolute inset-0 z-10 pointer-events-none bg-ivory/15" />
 
         {/* Bottom content */}
         <div className="relative z-20 w-full flex flex-col items-center pb-16 md:pb-20 px-6">

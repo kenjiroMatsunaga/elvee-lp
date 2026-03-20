@@ -64,19 +64,19 @@ export default function ImageModal({ images, currentIndex, onClose, onPrev, onNe
             )}
           </div>
 
-          {/* Prev / Next */}
+          {/* Prev / Next — 画像内に配置してモバイルでも操作可能 */}
           {hasMultiple && (
             <>
               <button
                 onClick={onPrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-10 h-10 bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-200 cursor-pointer"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors duration-200 cursor-pointer"
                 aria-label="前の画像"
               >
                 <ChevronLeft size={20} className="text-charcoal" />
               </button>
               <button
                 onClick={onNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-10 h-10 bg-white/90 flex items-center justify-center hover:bg-white transition-colors duration-200 cursor-pointer"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors duration-200 cursor-pointer"
                 aria-label="次の画像"
               >
                 <ChevronRight size={20} className="text-charcoal" />
