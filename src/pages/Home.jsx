@@ -49,16 +49,13 @@ export default function Home() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           {/* Top */}
           <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-ivory via-ivory/60 to-transparent" />
-          {/* Bottom — モバイル: 下端のみ軽くフェード / PC: テキスト可読性のため元の強さ */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 md:h-56 bg-gradient-to-t from-ivory via-ivory/70 to-transparent" />
+          {/* Bottom — モバイル: 下端のみ / PC: テキストエリアのみカバー */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 md:h-48 bg-gradient-to-t from-ivory via-ivory/60 to-transparent" />
           {/* Left */}
-          <div className="absolute top-0 left-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-ivory to-transparent" />
+          <div className="absolute top-0 left-0 bottom-0 w-12 md:w-16 bg-gradient-to-r from-ivory to-transparent" />
           {/* Right */}
-          <div className="absolute top-0 right-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-ivory to-transparent" />
+          <div className="absolute top-0 right-0 bottom-0 w-12 md:w-16 bg-gradient-to-l from-ivory to-transparent" />
         </div>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 z-10 pointer-events-none bg-ivory/10" />
 
         {/* Bottom content — PC only */}
         <div className="hidden md:flex relative z-20 w-full flex-col items-center pb-20 px-6">
