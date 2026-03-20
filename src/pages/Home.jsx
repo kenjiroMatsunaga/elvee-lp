@@ -48,8 +48,10 @@ export default function Home() {
         <div className="absolute inset-0 z-10 pointer-events-none">
           {/* Top */}
           <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-ivory via-ivory/60 to-transparent" />
-          {/* Bottom — コンテンツエリアを完全に覆う強いグラデーション */}
-          <div className="absolute bottom-0 left-0 right-0 h-[70%] md:h-[55%] bg-gradient-to-t from-ivory via-ivory/90 to-transparent" />
+          {/* Bottom solid — コンテンツエリアを完全に覆う不透明ベース */}
+          <div className="absolute bottom-0 left-0 right-0 h-[48%] md:h-[40%] bg-ivory" />
+          {/* Bottom gradient — solidの上のフェード */}
+          <div className="absolute bottom-[48%] md:bottom-[40%] left-0 right-0 h-[28%] md:h-[24%] bg-gradient-to-t from-ivory to-transparent" />
           {/* Left — モバイルは細め */}
           <div className="absolute top-0 left-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-ivory to-transparent" />
           {/* Right — モバイルは細め */}
