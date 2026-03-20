@@ -26,7 +26,8 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero — Full-bleed logo background */}
-      <section className="relative min-h-dvh flex flex-col items-end justify-end bg-ivory overflow-hidden">
+      {/* モバイル: 画像のみ表示 (h-[62vh]) / PC: フルハイト＋テキストオーバーレイ */}
+      <section className="relative h-[62vh] md:min-h-dvh flex flex-col items-end justify-end bg-ivory overflow-hidden">
 
         {/* Background image — full cover with Ken Burns zoom */}
         <motion.div
@@ -44,47 +45,43 @@ export default function Home() {
           />
         </motion.div>
 
-        {/* Edge blending — 4方向グラデーションで背景色にフェード */}
+        {/* Edge blending */}
         <div className="absolute inset-0 z-10 pointer-events-none">
           {/* Top */}
           <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-ivory via-ivory/60 to-transparent" />
-          {/* Bottom solid — コンテンツエリアを完全に覆う不透明ベース */}
-          <div className="absolute bottom-0 left-0 right-0 h-[48%] md:h-[40%] bg-ivory" />
-          {/* Bottom gradient — solidの上のフェード */}
-          <div className="absolute bottom-[48%] md:bottom-[40%] left-0 right-0 h-[28%] md:h-[24%] bg-gradient-to-t from-ivory to-transparent" />
-          {/* Left — モバイルは細め */}
+          {/* Bottom — モバイル: 下端のみ軽くフェード / PC: テキスト可読性のため元の強さ */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 md:h-56 bg-gradient-to-t from-ivory via-ivory/70 to-transparent" />
+          {/* Left */}
           <div className="absolute top-0 left-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-ivory to-transparent" />
-          {/* Right — モバイルは細め */}
+          {/* Right */}
           <div className="absolute top-0 right-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-ivory to-transparent" />
         </div>
 
-        {/* Overlay — 微細なテクスチャ感 */}
-        <div className="absolute inset-0 z-10 pointer-events-none bg-ivory/15" />
+        {/* Overlay */}
+        <div className="absolute inset-0 z-10 pointer-events-none bg-ivory/10" />
 
-        {/* Bottom content */}
-        <div className="relative z-20 w-full flex flex-col items-center pb-16 md:pb-20 px-6">
-          {/* Japanese tagline */}
+        {/* Bottom content — PC only */}
+        <div className="hidden md:flex relative z-20 w-full flex-col items-center pb-20 px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.4 }}
             className="text-center mb-8 px-4"
           >
-            <p className="font-serif text-base md:text-2xl text-charcoal/70 font-light tracking-wider md:tracking-widest mb-2">
+            <p className="font-serif text-2xl text-charcoal/70 font-light tracking-widest mb-2">
               大切な思い出を、一番美しい形で。
             </p>
             <p className="font-sans text-sm text-charcoal/45 font-light leading-loose">
-              写真が主役の大人かわいいプロフィールブック。<br className="hidden sm:block" />
+              写真が主役の大人かわいいプロフィールブック。<br />
               忙しいプレ花嫁様に寄り添うレイアウトをご提案します。
             </p>
           </motion.div>
 
-          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.8 }}
-            className="flex flex-col sm:flex-row gap-3 w-full max-w-xs sm:max-w-none sm:w-auto"
+            className="flex flex-row gap-3"
           >
             <Link
               to="/plan"
@@ -102,12 +99,12 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll hint */}
+        {/* Scroll hint — PC only */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5, duration: 1 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+          className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-20"
         >
           <span className="font-sans text-[10px] tracking-widest2 text-charcoal/25">SCROLL</span>
           <motion.div
@@ -116,6 +113,34 @@ export default function Home() {
             className="w-px h-8 bg-gradient-to-b from-charcoal/15 to-transparent"
           />
         </motion.div>
+      </section>
+
+      {/* Mobile tagline + CTA — ヒーロー下に配置（モバイルのみ表示） */}
+      <section className="md:hidden bg-ivory px-6 pt-10 pb-12 text-center">
+        <FadeInUp>
+          <p className="font-serif text-xl text-charcoal/70 font-light tracking-wider mb-3">
+            大切な思い出を、一番美しい形で。
+          </p>
+          <p className="font-sans text-sm text-charcoal/45 font-light leading-loose mb-8">
+            写真が主役の大人かわいいプロフィールブック。<br />
+            忙しいプレ花嫁様に寄り添うレイアウトをご提案します。
+          </p>
+          <div className="flex flex-col gap-3">
+            <Link
+              to="/plan"
+              className="inline-flex items-center justify-center gap-2 bg-charcoal text-white text-sm font-sans tracking-widest px-8 py-4 min-h-[52px] hover:bg-charcoal/80 transition-all duration-300 cursor-pointer group"
+            >
+              プランを見る
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
+            <Link
+              to="/design"
+              className="inline-flex items-center justify-center gap-2 border border-charcoal/30 text-charcoal text-sm font-sans tracking-widest px-8 py-4 min-h-[52px] hover:border-charcoal transition-all duration-300 cursor-pointer"
+            >
+              デザインを見る
+            </Link>
+          </div>
+        </FadeInUp>
       </section>
 
       {/* Concept */}
