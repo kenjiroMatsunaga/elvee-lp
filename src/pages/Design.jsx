@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight, ZoomIn } from 'lucide-react'
+import { ZoomIn } from 'lucide-react'
 import FadeInUp from '../components/FadeInUp'
 import ImageModal from '../components/ImageModal'
 
@@ -275,27 +275,7 @@ export default function Design() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-charcoal text-white py-20 px-6 text-center">
-        <FadeInUp>
-          <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
-            お好みのデザインは<br />
-            <span className="italic text-pink-soft">見つかりましたか？</span>
-          </h2>
-          <p className="font-sans text-sm text-white/50 leading-loose mb-10 max-w-md mx-auto">
-            ご希望のデザインイメージをお伝えください。オーダーメイドで理想の一冊をご提案します。
-          </p>
-          <a
-            href="https://forms.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gold text-white text-sm font-sans tracking-widest px-8 py-4 min-h-[52px] hover:bg-gold/80 transition-colors duration-300 cursor-pointer group"
-          >
-            お申し込みはこちら
-            <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-          </a>
-        </FadeInUp>
-      </section>
+
 
       {/* Image Modal — Canva */}
       {tmplModal && (
