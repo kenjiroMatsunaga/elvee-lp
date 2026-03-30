@@ -155,27 +155,27 @@ export default function Design() {
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="bg-ivory py-20 px-6 text-center">
+      <section className="bg-ivory py-16 md:py-20 px-6 text-center">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold mb-3 uppercase">Design</p>
-          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6 break-keep">
             デザイン一覧
           </h1>
-          <p className="font-sans text-sm text-charcoal/60 leading-loose max-w-lg mx-auto">
+          <p className="font-sans text-sm text-charcoal/60 md:whitespace-nowrap">
             Canvaテンプレートとカスタムセミオーダーのデザインサンプルをご覧いただけます。
           </p>
         </FadeInUp>
       </section>
 
       {/* Canva Templates */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Canva Templates</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4 break-keep">
               Canvaテンプレート
             </h2>
-            <p className="font-sans text-sm text-charcoal/60 text-center leading-loose mb-16 max-w-lg mx-auto">
+            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16 break-keep">
               購入後すぐに編集可能。スマホからでも簡単にカスタマイズできます。
             </p>
           </FadeInUp>
@@ -203,7 +203,7 @@ export default function Design() {
                     </div>
                   </button>
 
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-4 sm:p-6 flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-2">
                       <div>
                         <h3 className="font-serif text-lg text-charcoal font-light">{tmpl.name}</h3>
@@ -235,30 +235,30 @@ export default function Design() {
       </section>
 
       {/* Semi-Order */}
-      <section className="bg-ivory py-24 px-6">
+      <section className="bg-ivory py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Semi-Custom</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4 break-keep">
               カスタムセミオーダー
             </h2>
-            <p className="font-sans text-sm text-charcoal/60 text-center leading-loose mb-16 max-w-lg mx-auto">
+            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16 break-keep">
               表紙から席次表まで、各ページのデザインサンプルをご覧いただけます。
             </p>
           </FadeInUp>
 
-          <div className="space-y-16">
+          <div className="space-y-12 md:space-y-16">
             {semiOrderSections.map((section, si) => (
               <FadeInUp key={si} delay={0.05}>
                 <div>
-                  <div className="flex items-baseline gap-4 mb-4 pb-4 border-b border-greige/50">
-                    <h3 className="font-serif text-2xl text-charcoal font-light">{section.label}</h3>
+                  <div className="flex items-baseline gap-3 mb-4 pb-4 border-b border-greige/50">
+                    <h3 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h3>
                     <span className="font-sans text-xs text-gold tracking-widest">{section.labelEn}</span>
                   </div>
-                  <p className="font-sans text-sm text-charcoal/60 leading-loose mb-6">{section.desc}</p>
+                  <p className="font-sans text-sm text-charcoal/60 leading-relaxed mb-5 break-keep">{section.desc}</p>
 
-                  {/* 常に2カラムグリッド — 画像が1枚の場合は左に配置 */}
-                  <div className="grid grid-cols-2 gap-4">
+                  {/* モバイル: 1列 / sm以上: 2列 */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {section.images.map((src, ii) => (
                       <ImageBox
                         key={ii}
