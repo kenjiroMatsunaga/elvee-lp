@@ -1,12 +1,7 @@
 import { Check, ExternalLink } from 'lucide-react'
 import FadeInUp from '../components/FadeInUp'
-import { motion } from 'framer-motion'
 
-const FORM_URLS = {
-  canva: 'https://docs.google.com/forms/d/e/1FAIpQLSeJZgAZNHNbxvM8I995HBvoYpxz1476O-f_cew82cA9iVP3-Q/viewform?usp=header',
-  semi:  'https://docs.google.com/forms/d/e/1FAIpQLSc9JKJxodgNq-vFJKtxtyg4uHmJW1MEVf9ubMn88i648_tQbg/viewform?usp=header',
-  full:  'https://docs.google.com/forms/d/e/1FAIpQLSdMGidrHycS7rYeUbkmhGxJ4FbGCKOd_hCBZveZn7aXlhz9zQ/viewform?usp=header',
-}
+const LINE_URL = 'https://lin.ee/RGeVi7I'
 
 const plans = [
   {
@@ -174,7 +169,7 @@ export default function Plan() {
 
                   {/* CTA */}
                   <a
-                    href={FORM_URLS[plan.id]}
+                    href={LINE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center justify-center gap-2 text-sm font-sans tracking-widest py-4 min-h-[52px] transition-all duration-300 cursor-pointer group ${
@@ -183,7 +178,7 @@ export default function Plan() {
                         : 'bg-charcoal text-white hover:bg-charcoal/80'
                     }`}
                   >
-                    Googleフォームで申し込む
+                    LINEでお申し込み
                     <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
                   </a>
                 </div>
@@ -254,7 +249,7 @@ export default function Plan() {
               step: '01',
               timing: '納品希望日の約2ヶ月前',
               title: 'ご注文・ヒアリング',
-              body: 'ご希望のプランに合わせて、まずはGoogleフォームよりお申し込みください。ご注文受付後、大まかなページ構成や素材（お写真）の提出方法についてご案内いたします。',
+              body: 'ご希望のプランに合わせて、まずは公式LINEよりお申し込みください。ご注文受付後、大まかなページ構成や素材（お写真）の提出方法についてご案内いたします。',
               note: null,
             },
             {
@@ -337,11 +332,11 @@ export default function Plan() {
             お申し込みはこちら
           </h2>
           <p className="font-sans text-sm text-charcoal/60 leading-loose mb-8">
-            Googleフォームよりご希望のプランをお選びの上、お申し込みください。
+            お申し込みについては公式LINEからお願いします。
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href={FORM_URLS.canva}
+              href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-charcoal text-charcoal text-sm font-sans tracking-widest px-6 py-4 min-h-[52px] hover:bg-charcoal hover:text-white transition-colors duration-300 cursor-pointer group"
@@ -350,7 +345,7 @@ export default function Plan() {
               <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
             <a
-              href={FORM_URLS.semi}
+              href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-charcoal text-white text-sm font-sans tracking-widest px-6 py-4 min-h-[52px] hover:bg-charcoal/80 transition-colors duration-300 cursor-pointer group"
@@ -359,7 +354,7 @@ export default function Plan() {
               <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
             <a
-              href={FORM_URLS.full}
+              href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border border-charcoal text-charcoal text-sm font-sans tracking-widest px-6 py-4 min-h-[52px] hover:bg-charcoal hover:text-white transition-colors duration-300 cursor-pointer group"
