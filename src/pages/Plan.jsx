@@ -178,7 +178,7 @@ export default function Plan() {
                         : 'bg-charcoal text-white hover:bg-charcoal/80'
                     }`}
                   >
-                    LINEでお申し込み
+                    LINEでお問い合わせ
                     <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
                   </a>
                 </div>
@@ -325,46 +325,6 @@ export default function Plan() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-pink-blush py-20 px-6 text-center">
-        <FadeInUp>
-          <h2 className="font-serif text-3xl md:text-4xl text-charcoal font-light mb-4">
-            お申し込みはこちら
-          </h2>
-          <p className="font-sans text-sm text-charcoal/60 leading-loose mb-8">
-            お申し込みについては公式LINEからお願いします。
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-charcoal text-charcoal text-sm font-sans tracking-widest px-6 py-4 min-h-[52px] hover:bg-charcoal hover:text-white transition-colors duration-300 cursor-pointer group"
-            >
-              Canvaテンプレート
-              <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-            </a>
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-charcoal text-white text-sm font-sans tracking-widest px-6 py-4 min-h-[52px] hover:bg-charcoal/80 transition-colors duration-300 cursor-pointer group"
-            >
-              カスタムセミオーダー
-              <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-            </a>
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-charcoal text-charcoal text-sm font-sans tracking-widest px-6 py-4 min-h-[52px] hover:bg-charcoal hover:text-white transition-colors duration-300 cursor-pointer group"
-            >
-              フルオーダー
-              <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-            </a>
-          </div>
-        </FadeInUp>
-      </section>
     </div>
   )
 }
