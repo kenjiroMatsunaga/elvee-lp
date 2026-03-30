@@ -142,9 +142,6 @@ export default function Plan() {
                     <div className={`font-serif text-4xl font-light ${plan.featured ? 'text-white' : 'text-charcoal'}`}>
                       {plan.price}
                     </div>
-                    <p className={`font-sans text-xs mt-1 ${plan.featured ? 'text-white/50' : 'text-charcoal/50'}`}>
-                      {plan.priceNote} / {plan.pages}
-                    </p>
                   </div>
 
                   {/* Description */}
