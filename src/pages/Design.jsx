@@ -153,15 +153,15 @@ export default function Design() {
   const [semiModal, setSemiModal] = useState(null)
 
   return (
-    <div className="pt-16 md:pt-20">
+    <div className="pt-16 md:pt-20 overflow-x-hidden">
       {/* Hero */}
       <section className="bg-ivory py-16 md:py-20 px-6 text-center">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold mb-3 uppercase">Design</p>
-          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6 break-keep">
+          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6">
             デザイン一覧
           </h1>
-          <p className="font-sans text-sm text-charcoal/60 md:whitespace-nowrap">
+          <p className="font-sans text-sm text-charcoal/60 leading-relaxed max-w-sm mx-auto md:max-w-none">
             Canvaテンプレートとカスタムセミオーダーのデザインサンプルをご覧いただけます。
           </p>
         </FadeInUp>
@@ -172,10 +172,10 @@ export default function Design() {
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Canva Templates</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4 break-keep">
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4">
               Canvaテンプレート
             </h2>
-            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16 break-keep">
+            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16">
               購入後すぐに編集可能。スマホからでも簡単にカスタマイズできます。
             </p>
           </FadeInUp>
@@ -239,10 +239,10 @@ export default function Design() {
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Semi-Custom</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4 break-keep">
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4">
               カスタムセミオーダー
             </h2>
-            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16 break-keep">
+            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16">
               表紙から席次表まで、各ページのデザインサンプルをご覧いただけます。
             </p>
           </FadeInUp>
@@ -255,7 +255,7 @@ export default function Design() {
                     <h3 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h3>
                     <span className="font-sans text-xs text-gold tracking-widest">{section.labelEn}</span>
                   </div>
-                  <p className="font-sans text-sm text-charcoal/60 leading-relaxed mb-5 break-keep">{section.desc}</p>
+                  <p className="font-sans text-sm text-charcoal/60 leading-relaxed mb-5">{section.desc}</p>
 
                   {/* モバイル: 1列 / sm以上: 2列 */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
