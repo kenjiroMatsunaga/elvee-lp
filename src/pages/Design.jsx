@@ -103,7 +103,7 @@ const semiOrderSections = [
     label: 'プロフィール',
     labelEn: 'Profile',
     desc: 'お二人それぞれのプロフィールをおしゃれなレイアウトで紹介するページです。',
-    images: ['/semi-profile-01.png', '/semi-profile-02.png'],
+    images: ['/semi-profile-01.png'],
   },
   {
     label: 'Q＆A',
