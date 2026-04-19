@@ -123,6 +123,12 @@ const semiOrderSections = [
     desc: 'ゲストのお席をわかりやすく案内する席次表。デザインに統一感を持たせます。',
     images: ['/semi-seating-01.png'],
   },
+  {
+    label: 'フリーページ',
+    labelEn: 'Free Page',
+    desc: 'ラブストーリーやフォトコラージュなど、お二人らしさを自由に表現できるページです。',
+    images: ['/semi-freepage-01.png'],
+  },
 ]
 
 // 共通の画像ボックスコンポーネント
