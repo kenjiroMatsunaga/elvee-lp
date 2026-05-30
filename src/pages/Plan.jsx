@@ -1,5 +1,7 @@
-import { Check, ExternalLink } from 'lucide-react'
+import { useState } from 'react'
+import { Check, ExternalLink, ChevronRight } from 'lucide-react'
 import FadeInUp from '../components/FadeInUp'
+import ImageModal from '../components/ImageModal'
 
 const LINE_URL = 'https://lin.ee/RGeVi7I'
 
@@ -9,15 +11,13 @@ const plans = [
     badge: '人気No.1',
     name: 'カスタムセミオーダー',
     nameEn: 'Semi-Custom',
-    price: '¥ 5,000',
-    priceNote: '税込〜',
     description: 'デザインをベースにお写真、色味やレイアウトを調整するプランです。',
-    pages: 'カスタマイズ対応',
     features: [
       'お好きなデザインを組み合わせ可',
       '写真・色味・レイアウト調整',
       'テキスト変更対応',
     ],
+    priceImage: '/price-semi.png',
     color: 'border-charcoal',
     bg: 'bg-charcoal',
     featured: true,
@@ -27,15 +27,13 @@ const plans = [
     badge: null,
     name: 'フルオーダー',
     nameEn: 'Full-Custom',
-    price: '¥ 15,000',
-    priceNote: '税込〜',
     description: 'ご希望のデザインに合わせ、一から丁寧に作成いたします。',
-    pages: '完全オリジナル',
     features: [
       '完全オリジナルデザイン',
       'デザイン・レイアウト自由',
       '写真・文章・カラーすべて対応',
     ],
+    priceImage: '/price-full.png',
     color: 'border-greige',
     bg: 'bg-white',
   },
@@ -44,25 +42,21 @@ const plans = [
 const serviceDetails = [
   {
     title: 'セミオーダー',
-    price: '¥ 5,000-',
     body: 'デザインをベースにお写真、色味やレイアウトを調整するプランです。お好きなデザインを組み合わせることが可能です。',
-    note: null,
   },
   {
     title: 'フルオーダー',
-    price: '¥ 15,000-',
     body: 'ご希望のデザインに合わせ作成いたします。',
-    note: null,
   },
   {
     title: '印刷代行',
-    price: '代金引換',
     body: '「プリントパック」様で印刷代行も可能です。部数により料金が異なるため、お問い合わせください。',
-    note: null,
   },
 ]
 
 export default function Plan() {
+  const [priceModal, setPriceModal] = useState(null)
+
   return (
     <div className="pt-16 md:pt-20">
       {/* Hero */}
@@ -79,88 +73,102 @@ export default function Plan() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {plans.map((plan, i) => (
-            <FadeInUp key={plan.id} delay={i * 0.1}>
-              <div
-                className={`relative h-full flex flex-col border-2 ${plan.color} ${plan.bg} ${
-                  plan.featured ? 'md:-mt-4 md:mb-4 shadow-xl' : ''
-                }`}
-              >
-                {/* Badge */}
-                {plan.badge && (
-                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-[10px] font-sans tracking-widest ${
-                    plan.featured ? 'bg-gold text-white' : 'bg-pink-rose text-white'
-                  }`}>
-                    {plan.badge}
-                  </div>
-                )}
-
-                <div className="p-8 flex-1 flex flex-col">
-                  {/* Plan Name */}
-                  <div className="mb-6">
-                    <p className={`font-sans text-[10px] tracking-widest2 mb-1 ${plan.featured ? 'text-white/50' : 'text-gold'}`}>
-                      {plan.nameEn}
-                    </p>
-                    <h2 className={`font-serif text-2xl font-light ${plan.featured ? 'text-white' : 'text-charcoal'}`}>
-                      {plan.name}
-                    </h2>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mb-6">
-                    <div className={`font-serif text-4xl font-light ${plan.featured ? 'text-white' : 'text-charcoal'}`}>
-                      {plan.price}
+      <section className="py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            {plans.map((plan, i) => (
+              <FadeInUp key={plan.id} delay={i * 0.1}>
+                <div
+                  className={`relative h-full flex flex-col border-2 ${plan.color} ${plan.bg} ${
+                    plan.featured ? 'shadow-xl' : ''
+                  }`}
+                >
+                  {/* Badge */}
+                  {plan.badge && (
+                    <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-[10px] font-sans tracking-widest ${
+                      plan.featured ? 'bg-gold text-white' : 'bg-pink-rose text-white'
+                    }`}>
+                      {plan.badge}
                     </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className={`font-sans text-sm leading-loose mb-8 ${plan.featured ? 'text-white/70' : 'text-charcoal/60'}`}>
-                    {plan.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-3 mb-6 flex-1">
-                    {plan.features.map((f, fi) => (
-                      <li key={fi} className={`flex items-start gap-3 font-sans text-sm ${plan.featured ? 'text-white/80' : 'text-charcoal/70'}`}>
-                        <Check size={14} className={`mt-0.5 flex-shrink-0 ${plan.featured ? 'text-gold-light' : 'text-gold'}`} strokeWidth={2} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  {plan.note && (
-                    <p className={`font-sans text-xs mb-6 ${plan.featured ? 'text-white/40' : 'text-charcoal/40'}`}>
-                      {plan.note}
-                    </p>
                   )}
 
-                  {/* CTA */}
-                  <a
-                    href={LINE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-center gap-2 text-sm font-sans tracking-widest py-4 min-h-[52px] transition-all duration-300 cursor-pointer group ${
-                      plan.featured
-                        ? 'bg-gold text-white hover:bg-gold/80'
-                        : 'bg-charcoal text-white hover:bg-charcoal/80'
-                    }`}
-                  >
-                    LINEでお問い合わせ
-                    <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-                  </a>
-                </div>
-              </div>
-            </FadeInUp>
-          ))}
-        </div>
+                  <div className="p-8 flex-1 flex flex-col">
+                    {/* Plan Name */}
+                    <div className="mb-6">
+                      <p className={`font-sans text-[10px] tracking-widest2 mb-1 ${plan.featured ? 'text-white/50' : 'text-gold'}`}>
+                        {plan.nameEn}
+                      </p>
+                      <h2 className={`font-serif text-2xl font-light ${plan.featured ? 'text-white' : 'text-charcoal'}`}>
+                        {plan.name}
+                      </h2>
+                    </div>
 
-        <FadeInUp delay={0.3}>
-          <p className="font-sans text-xs text-charcoal/40 text-center mt-8 leading-loose">
-            ※ 価格は予告なく変更する場合があります。
-          </p>
-        </FadeInUp>
+                    {/* Description */}
+                    <p className={`font-sans text-sm leading-loose mb-8 ${plan.featured ? 'text-white/70' : 'text-charcoal/60'}`}>
+                      {plan.description}
+                    </p>
+
+                    {/* Features */}
+                    <ul className="space-y-3 mb-6 flex-1">
+                      {plan.features.map((f, fi) => (
+                        <li key={fi} className={`flex items-start gap-3 font-sans text-sm ${plan.featured ? 'text-white/80' : 'text-charcoal/70'}`}>
+                          <Check size={14} className={`mt-0.5 flex-shrink-0 ${plan.featured ? 'text-gold-light' : 'text-gold'}`} strokeWidth={2} />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* 金額詳細ボタン */}
+                    <button
+                      onClick={() => setPriceModal(plan.priceImage)}
+                      className={`flex items-center justify-center gap-2 text-sm font-sans tracking-widest py-4 min-h-[52px] transition-all duration-300 cursor-pointer group mb-3 border ${
+                        plan.featured
+                          ? 'border-white/30 text-white/80 hover:border-white/60 hover:text-white'
+                          : 'border-greige text-charcoal/60 hover:border-charcoal/40 hover:text-charcoal'
+                      }`}
+                    >
+                      金額詳細はこちら
+                      <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                    </button>
+
+                    {/* CTA */}
+                    <a
+                      href={LINE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center justify-center gap-2 text-sm font-sans tracking-widest py-4 min-h-[52px] transition-all duration-300 cursor-pointer group ${
+                        plan.featured
+                          ? 'bg-gold text-white hover:bg-gold/80'
+                          : 'bg-charcoal text-white hover:bg-charcoal/80'
+                      }`}
+                    >
+                      LINEでお問い合わせ
+                      <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                    </a>
+                  </div>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+
+          <FadeInUp delay={0.3}>
+            <p className="font-sans text-xs text-charcoal/40 text-center mt-8 leading-loose">
+              ※ 価格は予告なく変更する場合があります。
+            </p>
+          </FadeInUp>
+        </div>
       </section>
+
+      {/* Price Detail Modal */}
+      {priceModal && (
+        <ImageModal
+          images={[priceModal]}
+          currentIndex={0}
+          onClose={() => setPriceModal(null)}
+          onPrev={() => {}}
+          onNext={() => {}}
+        />
+      )}
 
       {/* Service Details */}
       <section className="bg-ivory py-24 px-6">
@@ -176,20 +184,10 @@ export default function Plan() {
               <FadeInUp key={i} delay={i * 0.1}>
                 <div className="bg-white p-8 md:p-10 grid md:grid-cols-3 gap-4 md:gap-6">
                   <div>
-                    <h3 className="font-serif text-xl text-charcoal font-light mb-1">{item.title}</h3>
-                    <p className="font-serif text-base text-gold">{item.price}</p>
+                    <h3 className="font-serif text-xl text-charcoal font-light">{item.title}</h3>
                   </div>
                   <div className="md:col-span-2">
                     <p className="font-sans text-sm text-charcoal/60 leading-loose">{item.body}</p>
-                    {item.notes && (
-                      <ul className="mt-3 space-y-1.5">
-                        {item.notes.map((n, ni) => (
-                          <li key={ni} className="font-sans text-xs text-charcoal/45 leading-relaxed">
-                            {n}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </div>
                 </div>
               </FadeInUp>
