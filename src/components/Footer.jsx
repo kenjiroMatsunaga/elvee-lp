@@ -61,7 +61,7 @@ export default function Footer() {
   return (
     <footer className="bg-ivory border-t border-greige/30" id="contact">
       {/* FAQ */}
-      <section className="max-w-2xl mx-auto px-6 md:px-12 py-20">
+      <section className="max-w-2xl mx-auto px-6 md:px-12 py-14 md:py-20">
         <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3">FAQ</p>
         <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center mb-12 font-light">
           よくあるご質問

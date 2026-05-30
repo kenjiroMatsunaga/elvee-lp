@@ -54,9 +54,9 @@ export default function Plan() {
   const [priceModal, setPriceModal] = useState(null)
 
   return (
-    <div className="pt-16 md:pt-20">
+    <div className="pt-16 md:pt-20 overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-ivory py-20 px-6 text-center">
+      <section className="bg-ivory py-14 md:py-20 px-6 text-center">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold mb-3 uppercase">Price & Plan</p>
           <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6">
@@ -69,7 +69,7 @@ export default function Plan() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20 px-6">
+      <section className="py-14 md:py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             {plans.map((plan, i) => (
@@ -88,7 +88,7 @@ export default function Plan() {
                     </div>
                   )}
 
-                  <div className="p-8 flex-1 flex flex-col">
+                  <div className="p-6 md:p-8 flex-1 flex flex-col">
                     {/* Plan Name */}
                     <div className="mb-6">
                       <p className={`font-sans text-[10px] tracking-widest2 mb-1 ${plan.featured ? 'text-white/50' : 'text-gold'}`}>
@@ -167,7 +167,7 @@ export default function Plan() {
       )}
 
       {/* Service Details */}
-      <section className="bg-ivory py-24 px-6">
+      <section className="bg-ivory py-16 md:py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Details</p>
@@ -193,7 +193,7 @@ export default function Plan() {
       </section>
 
       {/* Flow */}
-      <section className="py-24 px-6 max-w-3xl mx-auto">
+      <section className="py-16 md:py-24 px-6 max-w-3xl mx-auto">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Flow</p>
           <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-3">

@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* Concept */}
-      <section className="py-28 px-6 max-w-3xl mx-auto text-center">
+      <section className="py-20 md:py-28 px-6 max-w-3xl mx-auto text-center">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold mb-4 uppercase">Concept</p>
         </FadeInUp>
@@ -161,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="bg-ivory py-24 px-6">
+      <section className="bg-ivory py-16 md:py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Features</p>
@@ -186,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-charcoal text-white py-24 px-6">
+      <section className="bg-charcoal text-white py-16 md:py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <FadeInUp>
             <p className="font-sans text-xs tracking-widest2 text-gold-light mb-4 uppercase">Contact</p>
