@@ -5,25 +5,6 @@ const LINE_URL = 'https://lin.ee/RGeVi7I'
 
 const plans = [
   {
-    id: 'canva',
-    badge: '即日納品',
-    name: 'Canvaテンプレート',
-    nameEn: 'DIY Template',
-    price: '¥ 2,500',
-    priceNote: '税込',
-    description: 'ご自身で制作から印刷まで行っていただくデザインテンプレートです。No.1〜No.5の5種類からお選びください。',
-    pages: 'No.1〜No.5',
-    features: [
-      'お写真の入れ込み・文章変更可',
-      'カラー変更可能',
-      'スマホ・PCどちらでも操作可',
-      '購入後即時納品',
-    ],
-    note: '※一部素材はCanva有料プラン（Pro）が必要です。無料版でも基本編集は可能ですが、フォントや素材が制限される場合があります。',
-    color: 'border-greige',
-    bg: 'bg-ivory',
-  },
-  {
     id: 'semi',
     badge: '人気No.1',
     name: 'カスタムセミオーダー',
@@ -62,16 +43,6 @@ const plans = [
 
 const serviceDetails = [
   {
-    title: 'Canvaテンプレート',
-    price: '¥ 2,500-',
-    body: 'ご自身で制作から印刷まで行っていただくデザインテンプレートです。お写真の入れ込み、文章・カラー変更が可能。',
-    notes: [
-      '※ご利用にはCanvaへの無料登録が必要です。',
-      '※テンプレートによっては、一部素材にCanva有料プラン（Pro / ¥1,500/月〜）が必要な場合があります。',
-      '※無料版でも基本的な編集（写真・文章差し替え）は可能ですが、一部フォントや素材が有料版限定となる場合があります。その場合は無料素材への変更、またはCanva Proへのアップグレードをご検討ください。',
-    ],
-  },
-  {
     title: 'セミオーダー',
     price: '¥ 5,000-',
     body: 'デザインをベースにお写真、色味やレイアウトを調整するプランです。お好きなデザインを組み合わせることが可能です。',
@@ -102,7 +73,7 @@ export default function Plan() {
             プラン・料金
           </h1>
           <p className="font-sans text-sm text-charcoal/60 leading-loose max-w-lg mx-auto">
-            スタイルや予算に合わせて、3つのプランからお選びいただけます。
+            スタイルや予算に合わせて、2つのプランからお選びいただけます。
           </p>
         </FadeInUp>
       </section>
