@@ -1,27 +1,27 @@
-import { Sparkles, Heart, Camera } from 'lucide-react'
 import FadeInUp from '../FadeInUp'
 
+// body は文節単位の配列。単語の途中で改行されないよう inline-block で描画する
 const features = [
   {
-    icon: Camera,
+    no: '01',
     title: '写真が主役のデザイン',
-    body: 'お二人の大切な写真を最も美しく見せるレイアウトを、一枚一枚丁寧に設計します。',
+    body: ['お二人の大切な写真を', '最も美しく見せる', 'レイアウトを、', '一枚一枚丁寧に', '設計します。'],
   },
   {
-    icon: Heart,
+    no: '02',
     title: '寄り添うサポート',
-    body: '忙しいプレ花嫁様のために、LINEやDMで気軽にご相談いただける体制を整えています。',
+    body: ['忙しいプレ花嫁様のために、', 'LINEやDMで', '気軽にご相談いただける', '体制を整えています。'],
   },
   {
-    icon: Sparkles,
+    no: '03',
     title: 'こだわりの仕上がり',
-    body: 'トレンドを押さえつつ、時を経ても色あせないエレガントなデザインをご提案します。',
+    body: ['どんな会場にもなじむ、', '時を経ても色あせない', 'デザインをご提案します。'],
   },
 ]
 
 export default function FeatureSection() {
   return (
-    <section className="bg-ivory py-16 md:py-24 px-6">
+    <section className="bg-ivory py-16 md:py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Features</p>
@@ -29,15 +29,18 @@ export default function FeatureSection() {
             Elveeが選ばれる理由
           </h2>
         </FadeInUp>
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-3 gap-14 lg:gap-12">
           {features.map((f, i) => (
-            <FadeInUp key={i} delay={i * 0.1}>
+            <FadeInUp key={f.no} delay={i * 0.1}>
               <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-6 bg-pink-blush rounded-full flex items-center justify-center">
-                  <f.icon size={20} className="text-pink-rose" strokeWidth={1.5} />
-                </div>
+                <p className="font-serif italic text-2xl text-gold mb-4" aria-hidden="true">{f.no}</p>
+                <div className="w-8 h-px mx-auto mb-6 bg-gold-light" />
                 <h3 className="font-serif text-xl text-charcoal font-light mb-3">{f.title}</h3>
-                <p className="font-sans text-sm text-charcoal/60 leading-loose">{f.body}</p>
+                <p className="font-sans text-sm text-charcoal/80 leading-loose">
+                  {f.body.map((phrase) => (
+                    <span key={phrase} className="inline-block">{phrase}</span>
+                  ))}
+                </p>
               </div>
             </FadeInUp>
           ))}
