@@ -80,12 +80,9 @@ export default function Design() {
       <section className="bg-ivory py-16 md:py-20 px-6 text-center">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold mb-3 uppercase">Design</p>
-          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light">
             デザイン一覧
           </h1>
-          <p className="font-sans text-sm text-charcoal/60 leading-relaxed max-w-sm mx-auto md:max-w-none">
-            カスタムセミオーダーのデザインサンプルをご覧いただけます。
-          </p>
         </FadeInUp>
       </section>
 
@@ -114,7 +111,7 @@ export default function Design() {
               <FadeInUp key={si} delay={0.05}>
                 <div>
                   <div className="flex items-baseline gap-3 mb-4 pb-4 border-b border-greige/50">
-                    <h3 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h3>
+                    <h2 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h2>
                     <span className="font-sans text-xs text-gold tracking-widest">{section.labelEn}</span>
                   </div>
                   <p className="font-sans text-sm text-charcoal/60 leading-relaxed mb-5">{section.desc}</p>
