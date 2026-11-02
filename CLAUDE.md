@@ -19,3 +19,4 @@
 
 ## Git ワークフロー
 - 今後は Git コミット、リモートプッシュ、Draft PR 作成、PR 本文更新、Ready for review への切り替え、マージまで、すべて gh CLI を用いて自律実行すること
+- PR に保留事項が残っている場合や、CI が失敗している場合は、Ready for review への切り替えとマージを行わない
