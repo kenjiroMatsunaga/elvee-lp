@@ -13,14 +13,10 @@ export default function Hero() {
           transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center md:text-left"
         >
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal font-light leading-snug tracking-wider text-balance mb-6">
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal font-light leading-snug tracking-wider text-balance mb-8 md:mb-10">
             大切な思い出を、<br />
             <span className="text-pink-rose">一番美しい形</span>で。
           </h1>
-          <p className="font-sans text-sm md:text-base text-charcoal/60 font-light leading-loose mb-10">
-            写真が主役の大人かわいいプロフィールブック。<br />
-            忙しいプレ花嫁様に寄り添う<br className="md:hidden" />レイアウトをご提案します。
-          </p>
           <Link
             to="/plan"
             className="inline-flex w-full md:w-auto items-center justify-center gap-2 bg-charcoal text-white text-sm font-sans tracking-widest px-10 py-4 min-h-[52px] hover:bg-charcoal/80 transition-all duration-300 cursor-pointer group"

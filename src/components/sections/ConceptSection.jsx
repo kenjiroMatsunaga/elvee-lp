@@ -14,9 +14,21 @@ export default function ConceptSection() {
       </FadeInUp>
       <FadeInUp delay={0.2}>
         <p className="font-sans text-sm text-charcoal/60 leading-loose max-w-xl mx-auto">
-          韓国っぽ×大人かわいいをコンセプトに、洗練された余白と繊細なタイポグラフィで
-          お二人の想いを形にします。世界にひとつだけのプロフィールブックで、
-          大切なゲストへの最高のおもてなしを。
+          <span className="block">
+            <span className="inline-block">上質で洗練された、</span>
+            <span className="inline-block">大人花嫁のための</span>
+            <span className="inline-block">ウェディングサービス。</span>
+          </span>
+          <span className="block">
+            <span className="inline-block">どんな会場にもなじむ</span>
+            <span className="inline-block">“タイムレスな美しさ”を</span>
+            <span className="inline-block">追求しています。</span>
+          </span>
+          <span className="block">
+            <span className="inline-block">理想の一冊を</span>
+            <span className="inline-block">かたちにする</span>
+            <span className="inline-block">お手伝いをいたします。</span>
+          </span>
         </p>
       </FadeInUp>
     </section>
