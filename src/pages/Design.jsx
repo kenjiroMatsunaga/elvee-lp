@@ -93,12 +93,19 @@ export default function Design() {
       <section className="bg-ivory py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
-            <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Semi-Custom</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4">
-              カスタムセミオーダー
-            </h2>
             <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16">
-              表紙から席次表まで、各ページのデザインサンプルをご覧いただけます。
+              <span className="block">
+                <span className="inline-block">表紙から席次表まで、</span>
+                <span className="inline-block">各ページのデザインサンプルを</span>
+                <span className="inline-block">ご覧いただけます。</span>
+              </span>
+              <span className="block">
+                <span className="inline-block">８ページの構成になるよう</span>
+                <span className="inline-block">選択お願いいたします。</span>
+              </span>
+              <span className="block">
+                <span className="inline-block">（見開きは2ページ分になります）</span>
+              </span>
             </p>
           </FadeInUp>
 
