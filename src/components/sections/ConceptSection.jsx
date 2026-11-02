@@ -8,7 +8,7 @@ export default function ConceptSection() {
       </FadeInUp>
       <FadeInUp delay={0.1}>
         <h2 className="font-serif text-3xl md:text-5xl text-charcoal font-light leading-snug mb-10">
-          二人だけの物語を、<br className="hidden md:block" />
+          二人だけの物語を、<br />
           <span className="italic text-pink-rose">美しい一冊</span>に。
         </h2>
       </FadeInUp>
