@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { Check, ExternalLink, ChevronRight } from 'lucide-react'
 import FadeInUp from '../components/FadeInUp'
 import ImageModal from '../components/ImageModal'
-
-const LINE_URL = 'https://lin.ee/RGeVi7I'
+import { LINE_URL } from '../constants'
 
 const plans = [
   {

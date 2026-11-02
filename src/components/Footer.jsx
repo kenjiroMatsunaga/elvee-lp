@@ -1,6 +1,7 @@
 import { Instagram, MessageCircle, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { LINE_URL, INSTAGRAM_URL } from '../constants'
 
 const faqs = [
   {
@@ -79,7 +80,7 @@ export default function Footer() {
           <p className="font-serif text-xl tracking-widest text-charcoal">Elvee</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://www.instagram.com/elvee_wedding?igsh=dnBwaDNlNWpwbnNp&utm_source=qr"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-charcoal text-white text-sm font-sans tracking-wider px-6 py-4 min-h-[52px] hover:bg-charcoal/80 transition-colors duration-300 cursor-pointer"
@@ -89,7 +90,7 @@ export default function Footer() {
               Instagram
             </a>
             <a
-              href="https://lin.ee/RGeVi7I"
+              href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#06C755] text-white text-sm font-sans tracking-wider px-6 py-4 min-h-[52px] hover:bg-[#06C755]/80 transition-colors duration-300 cursor-pointer"
