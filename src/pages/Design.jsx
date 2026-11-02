@@ -80,12 +80,9 @@ export default function Design() {
       <section className="bg-ivory py-16 md:py-20 px-6 text-center">
         <FadeInUp>
           <p className="font-sans text-xs tracking-widest2 text-gold mb-3 uppercase">Design</p>
-          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl text-charcoal font-light">
             デザイン一覧
           </h1>
-          <p className="font-sans text-sm text-charcoal/60 leading-relaxed max-w-sm mx-auto md:max-w-none">
-            カスタムセミオーダーのデザインサンプルをご覧いただけます。
-          </p>
         </FadeInUp>
       </section>
 
@@ -93,12 +90,19 @@ export default function Design() {
       <section className="bg-ivory py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
-            <p className="font-sans text-xs tracking-widest2 text-gold text-center mb-3 uppercase">Semi-Custom</p>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal text-center font-light mb-4">
-              カスタムセミオーダー
-            </h2>
             <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16">
-              表紙から席次表まで、各ページのデザインサンプルをご覧いただけます。
+              <span className="block">
+                <span className="inline-block">表紙から席次表まで、</span>
+                <span className="inline-block">各ページのデザインサンプルを</span>
+                <span className="inline-block">ご覧いただけます。</span>
+              </span>
+              <span className="block">
+                <span className="inline-block">８ページの構成になるよう</span>
+                <span className="inline-block">選択お願いいたします。</span>
+              </span>
+              <span className="block">
+                <span className="inline-block">（見開きは2ページ分になります）</span>
+              </span>
             </p>
           </FadeInUp>
 
@@ -107,7 +111,7 @@ export default function Design() {
               <FadeInUp key={si} delay={0.05}>
                 <div>
                   <div className="flex items-baseline gap-3 mb-4 pb-4 border-b border-greige/50">
-                    <h3 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h3>
+                    <h2 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h2>
                     <span className="font-sans text-xs text-gold tracking-widest">{section.labelEn}</span>
                   </div>
                   <p className="font-sans text-sm text-charcoal/60 leading-relaxed mb-5">{section.desc}</p>
