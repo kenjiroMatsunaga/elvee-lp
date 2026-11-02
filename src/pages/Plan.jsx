@@ -260,7 +260,7 @@ export default function Plan() {
                 </div>
                 <div className="pt-2 pb-2 flex-1">
                   {/* Timing badge */}
-                  <p className="font-sans text-[11px] text-gold/80 tracking-wider mb-1">目安：{item.timing}</p>
+                  <p className="font-sans text-[11px] text-gold tracking-wider mb-1">目安：{item.timing}</p>
                   <h3 className="font-serif text-xl text-charcoal font-light mb-3">{item.title}</h3>
                   {item.body && (
                     <p className="font-sans text-sm text-charcoal/60 leading-loose mb-3">{item.body}</p>

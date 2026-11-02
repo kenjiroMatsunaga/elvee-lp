@@ -13,12 +13,12 @@ export default {
         'pink-blush': '#F7E8E8',
         'pink-soft': '#E8B4B8',
         'pink-rose': '#D4869A',
-        'gold': '#B8986A',
+        'gold': '#866A3A',
         'gold-light': '#D4B896',
         'gold-dark': '#8B6914',
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Cormorant Garamond"', '"Noto Serif JP"', 'Georgia', 'serif'],
         sans: ['"Noto Sans JP"', 'sans-serif'],
       },
       letterSpacing: {
