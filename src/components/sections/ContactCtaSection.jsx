@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Instagram } from 'lucide-react'
 import FadeInUp from '../FadeInUp'
-import { LINE_URL, INSTAGRAM_URL } from '../../constants'
+import { LINE_URL } from '../../constants'
 
 const samples = [
   { src: '/semi-cover-01-thumb.jpg', alt: '表紙デザインのサンプル' },
@@ -22,14 +21,10 @@ export default function ContactCtaSection() {
     <section className="bg-charcoal text-white py-16 md:py-24 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <FadeInUp>
-          <p className="font-sans text-xs tracking-widest2 text-gold-light mb-4 uppercase">Contact</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-light mb-6 leading-snug">
-            ご準備の合間に、<br />
-            <span className="text-pink-soft">LINEでお気軽に。</span>
-          </h2>
+          <h2 className="font-serif text-xs tracking-widest2 text-gold-light mb-4 uppercase">Contact</h2>
           <p className="font-sans text-sm text-white/80 leading-loose mb-8">
             <span className="inline-block">ご質問・ご要望など、</span>
-            <span className="inline-block">LINEまたはInstagramのDMより</span>
+            <span className="inline-block">公式LINEより</span>
             <span className="inline-block">お気軽にお問い合わせください。</span>
           </p>
           <ul className="font-sans text-xs md:text-sm text-white/80 leading-relaxed space-y-3 border-y border-white/20 py-6 mb-10">
@@ -54,7 +49,7 @@ export default function ContactCtaSection() {
               />
             ))}
           </Link>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={LINE_URL}
               target="_blank"
@@ -70,15 +65,6 @@ export default function ContactCtaSection() {
               デザインサンプルを見る
             </Link>
           </div>
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 min-h-[44px] font-sans text-xs tracking-wider text-white/80 underline underline-offset-4 hover:text-white transition-colors duration-300 cursor-pointer"
-          >
-            <Instagram size={14} aria-hidden="true" />
-            InstagramのDMで相談する
-          </a>
         </FadeInUp>
       </div>
     </section>
