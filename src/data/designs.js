@@ -10,7 +10,6 @@ function design(id, label, template, file, side) {
   const name = `template-${pad(template)}-${pad(file)}`
   return {
     id,
-    templateNo: `No.${template}`,
     image: `/images/designs/${name}.png`,
     thumbnail: `/images/designs/thumbs/${name}.webp`,
     title: `${label}デザイン ${id}`,

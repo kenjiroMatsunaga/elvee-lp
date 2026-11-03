@@ -9,7 +9,7 @@ function DesignCard({ design, isSelected, onSelect }) {
       onClick={() => onSelect(design)}
       aria-pressed={isSelected}
       aria-label={`${design.title}を大きく表示`}
-      className="group block w-full text-left cursor-pointer"
+      className="group block w-full self-start text-left cursor-pointer"
     >
       <span
         className={`relative block aspect-[2000/1414] overflow-hidden bg-white border transition-colors duration-300 ${
@@ -33,10 +33,9 @@ function DesignCard({ design, isSelected, onSelect }) {
           {design.id}
         </span>
       </span>
-      <span className="block mt-1.5 font-sans text-xs text-charcoal/80">
-        {design.templateNo}
-        {design.side && ` ・ ${design.side}`}
-      </span>
+      {design.side && (
+        <span className="block mt-1.5 font-sans text-xs text-charcoal/80">{design.side}</span>
+      )}
     </button>
   )
 }
@@ -93,10 +92,9 @@ export default function Design() {
                   {selected.id}
                 </span>
                 <p className="font-serif text-sm md:text-lg text-charcoal break-keep">{selected.title}</p>
-                <p className="ml-auto shrink-0 font-sans text-xs text-charcoal/80">
-                  {selected.templateNo}
-                  {selected.side && ` ・ ${selected.side}`}
-                </p>
+                {selected.side && (
+                  <p className="ml-auto shrink-0 font-sans text-xs text-charcoal/80">{selected.side}</p>
+                )}
               </div>
             </div>
 
