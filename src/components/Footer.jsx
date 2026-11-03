@@ -1,7 +1,7 @@
-import { Instagram, MessageCircle, ChevronDown } from 'lucide-react'
+import { MessageCircle, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { LINE_URL, INSTAGRAM_URL } from '../constants'
+import { LINE_URL } from '../constants'
 
 const faqs = [
   {
@@ -78,32 +78,20 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* SNS Links */}
+      {/* LINE Link */}
       <div className="border-t border-greige/30 py-12">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="font-serif text-xl tracking-widest text-charcoal">Elvee</p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-charcoal text-white text-sm font-sans tracking-wider px-6 py-4 min-h-[52px] hover:bg-charcoal/80 transition-colors duration-300 cursor-pointer"
-              aria-label="Instagram"
-            >
-              <Instagram size={14} />
-              Instagram
-            </a>
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#06C755] text-white text-sm font-sans tracking-wider px-6 py-4 min-h-[52px] hover:bg-[#06C755]/80 transition-colors duration-300 cursor-pointer"
-              aria-label="公式LINE"
-            >
-              <MessageCircle size={14} />
-              公式LINE
-            </a>
-          </div>
+          <a
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-[#06C755] text-white text-sm font-sans tracking-wider px-6 py-4 min-h-[52px] hover:bg-[#06C755]/80 transition-colors duration-300 cursor-pointer"
+            aria-label="公式LINE"
+          >
+            <MessageCircle size={14} />
+            公式LINE
+          </a>
         </div>
       </div>
 
