@@ -1,15 +1,18 @@
 // デザイン素材のカタログ。画像の差し替えは image のファイル、掲載の増減は items の行を編集するだけで反映される。
 // 1枚の見開きに2カテゴリのページが載っている場合は、カテゴリごとに行を分け side でページ位置を示す。
+// thumbnail は npm run build（または npm run thumbs）で image から生成される。
 
 const LEFT = '左ページ'
 const RIGHT = '右ページ'
 
 function design(id, label, template, file, side) {
   const pad = (n) => String(n).padStart(2, '0')
+  const name = `template-${pad(template)}-${pad(file)}`
   return {
     id,
     templateNo: `No.${template}`,
-    image: `/images/designs/template-${pad(template)}-${pad(file)}.png`,
+    image: `/images/designs/${name}.png`,
+    thumbnail: `/images/designs/thumbs/${name}.webp`,
     title: `${label}デザイン ${id}`,
     side,
   }

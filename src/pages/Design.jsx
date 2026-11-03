@@ -17,10 +17,10 @@ function DesignCard({ design, isSelected, onSelect }) {
         }`}
       >
         <img
-          src={design.image}
+          src={design.thumbnail}
           alt=""
-          width="2000"
-          height="1414"
+          width="480"
+          height="339"
           loading="lazy"
           decoding="async"
           className="w-full h-full object-contain"
