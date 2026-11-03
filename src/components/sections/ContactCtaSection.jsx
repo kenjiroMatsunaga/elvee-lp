@@ -2,12 +2,6 @@ import { Link } from 'react-router-dom'
 import FadeInUp from '../FadeInUp'
 import { LINE_URL } from '../../constants'
 
-const samples = [
-  { src: '/semi-cover-01-thumb.jpg', alt: '表紙デザインのサンプル' },
-  { src: '/semi-profile-01-thumb.jpg', alt: 'プロフィールページのサンプル' },
-  { src: '/semi-menu-01-thumb.jpg', alt: 'メニューページのサンプル' },
-]
-
 // 文節単位の配列。単語の途中で改行されないよう inline-block で描画する
 const reassurances = [
   ['ご相談は', '無料です'],
@@ -27,7 +21,7 @@ export default function ContactCtaSection() {
             <span className="inline-block">公式LINEより</span>
             <span className="inline-block">お気軽にお問い合わせください。</span>
           </p>
-          <ul className="font-sans text-xs md:text-sm text-white/80 leading-relaxed space-y-3 border-y border-white/20 py-6 mb-10">
+          <ul className="font-sans text-xs md:text-sm text-white/80 leading-relaxed space-y-3 border-y border-white/20 py-6 mb-8">
             {reassurances.map((phrases) => (
               <li key={phrases[0]}>
                 {phrases.map((phrase) => (
@@ -36,19 +30,6 @@ export default function ContactCtaSection() {
               </li>
             ))}
           </ul>
-          <Link to="/design" className="grid grid-cols-3 gap-2 md:gap-3 mb-10 group">
-            {samples.map((sample) => (
-              <img
-                key={sample.src}
-                src={sample.src}
-                alt={sample.alt}
-                width="640"
-                height="512"
-                loading="lazy"
-                className="w-full h-auto group-hover:opacity-80 transition-opacity duration-300"
-              />
-            ))}
-          </Link>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={LINE_URL}
