@@ -2,34 +2,17 @@ import { Link } from 'react-router-dom'
 import FadeInUp from '../FadeInUp'
 import { LINE_URL } from '../../constants'
 
-// 文節単位の配列。単語の途中で改行されないよう inline-block で描画する
-const reassurances = [
-  ['ご相談は', '無料です'],
-  ['スマートフォンの写真にも', '対応しています'],
-  ['納期の目安は', 'カスタムセミオーダーが約3週間、', 'フルオーダーが約2ヶ月です'],
-  ['データ納品にも', '対応しています'],
-]
-
 export default function ContactCtaSection() {
   return (
     <section className="bg-charcoal text-white py-16 md:py-24 px-6">
       <div className="max-w-2xl mx-auto text-center">
         <FadeInUp>
           <h2 className="font-serif text-xs tracking-widest2 text-gold-light mb-4 uppercase">Contact</h2>
-          <p className="font-sans text-sm text-white/80 leading-loose mb-8">
+          <p className="font-sans text-sm text-white/80 leading-loose mb-10 md:mb-12">
             <span className="inline-block">ご質問・ご要望など、</span>
             <span className="inline-block">公式LINEより</span>
             <span className="inline-block">お気軽にお問い合わせください。</span>
           </p>
-          <ul className="font-sans text-xs md:text-sm text-white/80 leading-relaxed space-y-3 border-y border-white/20 py-6 mb-8">
-            {reassurances.map((phrases) => (
-              <li key={phrases[0]}>
-                {phrases.map((phrase) => (
-                  <span key={phrase} className="inline-block">{phrase}</span>
-                ))}
-              </li>
-            ))}
-          </ul>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={LINE_URL}
