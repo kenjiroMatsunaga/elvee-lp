@@ -1,81 +1,51 @@
 import { useState } from 'react'
-import { ZoomIn } from 'lucide-react'
 import FadeInUp from '../components/FadeInUp'
-import ImageModal from '../components/ImageModal'
+import { designCategories } from '../data/designs'
 
-const semiOrderSections = [
-  {
-    label: '表紙・裏表紙',
-    labelEn: 'Cover',
-    desc: 'プロフィールブックの顔となる表紙と裏表紙。お二人の雰囲気に合わせたデザインをご提案します。',
-    images: ['/semi-cover-01.png', '/semi-cover-02.png'],
-  },
-  {
-    label: '挨拶',
-    labelEn: 'Greeting',
-    desc: 'ゲストへの感謝の気持ちを込めた挨拶ページ。お二人らしい言葉で彩ります。',
-    images: ['/semi-greeting-01.png'],
-  },
-  {
-    label: 'プロフィール',
-    labelEn: 'Profile',
-    desc: 'お二人それぞれのプロフィールをおしゃれなレイアウトで紹介するページです。',
-    images: ['/semi-profile-01.png'],
-  },
-  {
-    label: 'Q＆A',
-    labelEn: 'Q&A',
-    desc: 'ゲストに楽しんでもらえるQ&Aページ。お二人の意外な一面を披露しましょう。',
-    images: ['/semi-qa-01.png'],
-  },
-  {
-    label: 'MENU',
-    labelEn: 'Menu',
-    desc: '当日のお料理やドリンクをエレガントに紹介するメニューページです。',
-    images: ['/semi-menu-01.png'],
-  },
-  {
-    label: '席次表',
-    labelEn: 'Seating List',
-    desc: 'ゲストのお席をわかりやすく案内する席次表。デザインに統一感を持たせます。',
-    images: ['/semi-seating-01.png'],
-  },
-  {
-    label: 'フリーページ',
-    labelEn: 'Free Page',
-    desc: 'ラブストーリーやフォトコラージュなど、お二人らしさを自由に表現できるページです。',
-    images: ['/semi-freepage-01.png'],
-  },
-]
-
-// 共通の画像ボックスコンポーネント
-function ImageBox({ src, alt, onClick }) {
+function DesignCard({ design, isSelected, onSelect }) {
   return (
     <button
-      onClick={onClick}
-      className="w-full aspect-[4/3] bg-ivory border border-greige/40 overflow-hidden relative group cursor-pointer block"
-      aria-label={`${alt}を拡大表示`}
+      type="button"
+      onClick={() => onSelect(design)}
+      aria-pressed={isSelected}
+      aria-label={`${design.title}を大きく表示`}
+      className="group block w-full text-left cursor-pointer"
     >
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-300 flex items-center justify-center">
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 p-3">
-          <ZoomIn size={18} className="text-charcoal" />
-        </div>
-      </div>
+      <span
+        className={`relative block aspect-[2000/1414] overflow-hidden bg-white border transition-colors duration-300 ${
+          isSelected ? 'border-gold ring-1 ring-gold' : 'border-greige/40 group-hover:border-gold-light'
+        }`}
+      >
+        <img
+          src={design.image}
+          alt=""
+          width="2000"
+          height="1414"
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-contain"
+        />
+        <span
+          className={`absolute top-0 left-0 px-2 py-1 font-sans text-xs font-medium tracking-wider transition-colors duration-300 ${
+            isSelected ? 'bg-gold text-white' : 'bg-white/90 text-charcoal'
+          }`}
+        >
+          {design.id}
+        </span>
+      </span>
+      <span className="block mt-1.5 font-sans text-xs text-charcoal/80">
+        {design.templateNo}
+        {design.side && ` ・ ${design.side}`}
+      </span>
     </button>
   )
 }
 
 export default function Design() {
-  const [semiModal, setSemiModal] = useState(null)
+  const [selected, setSelected] = useState(designCategories[0].items[0])
 
   return (
-    <div className="pt-16 md:pt-20 overflow-x-hidden">
+    <div className="pt-16 md:pt-20 overflow-x-clip">
       {/* Hero */}
       <section className="bg-ivory py-16 md:py-20 px-6 text-center">
         <FadeInUp>
@@ -87,10 +57,10 @@ export default function Design() {
       </section>
 
       {/* Semi-Order */}
-      <section className="bg-ivory py-16 md:py-24 px-6">
+      <section className="bg-ivory pb-16 md:pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeInUp>
-            <p className="font-sans text-sm text-charcoal/60 text-center leading-relaxed mb-12 md:mb-16">
+            <p className="font-sans text-sm text-charcoal/80 text-center leading-relaxed mb-10 md:mb-16">
               <span className="block">
                 <span className="inline-block">表紙から席次表まで、</span>
                 <span className="inline-block">各ページのデザインサンプルを</span>
@@ -106,46 +76,57 @@ export default function Design() {
             </p>
           </FadeInUp>
 
-          <div className="space-y-12 md:space-y-16">
-            {semiOrderSections.map((section, si) => (
-              <FadeInUp key={si} delay={0.05}>
-                <div>
-                  <div className="flex items-baseline gap-3 mb-4 pb-4 border-b border-greige/50">
-                    <h2 className="font-serif text-xl md:text-2xl text-charcoal font-light">{section.label}</h2>
-                    <span className="font-sans text-xs text-gold tracking-widest">{section.labelEn}</span>
-                  </div>
-                  <p className="font-sans text-sm text-charcoal/60 leading-relaxed mb-5">{section.desc}</p>
+          <div className="flex flex-col lg:flex-row lg:gap-12">
+            {/* メインプレビュー: スクロールしても選択中のデザインを確認できるよう追従させる */}
+            <div className="sticky top-16 md:top-20 z-30 -mx-6 px-6 py-3 bg-ivory lg:top-24 lg:z-auto lg:mx-0 lg:px-0 lg:py-0 lg:w-7/12 lg:self-start">
+              <div className="aspect-[2000/1414] max-h-[50vh] lg:max-h-none bg-white border border-greige/40">
+                <img
+                  src={selected.image}
+                  alt={selected.title}
+                  width="2000"
+                  height="1414"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex items-center gap-3 mt-2 lg:mt-4" aria-live="polite">
+                <span className="bg-gold text-white font-sans text-xs font-medium tracking-wider px-2 py-1">
+                  {selected.id}
+                </span>
+                <p className="font-serif text-sm md:text-lg text-charcoal break-keep">{selected.title}</p>
+                <p className="ml-auto shrink-0 font-sans text-xs text-charcoal/80">
+                  {selected.templateNo}
+                  {selected.side && ` ・ ${selected.side}`}
+                </p>
+              </div>
+            </div>
 
-                  {/* モバイル: 1列 / sm以上: 2列 */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {section.images.map((src, ii) => (
-                      <ImageBox
-                        key={ii}
-                        src={src}
-                        alt={`${section.label} サンプル ${ii + 1}`}
-                        onClick={() => setSemiModal({ images: [src], index: 0 })}
+            {/* カテゴリ別グリッド */}
+            <div className="mt-8 lg:mt-0 lg:w-5/12 space-y-12 md:space-y-16">
+              {designCategories.map((category) => (
+                <FadeInUp key={category.key} delay={0.05}>
+                  <div className="flex items-baseline gap-3 mb-4 pb-4 border-b border-greige/50">
+                    <h2 className="font-serif text-xl md:text-2xl text-charcoal font-light">{category.label}</h2>
+                    <span className="font-sans text-xs text-gold tracking-widest">{category.labelEn}</span>
+                  </div>
+                  <p className="font-sans text-sm text-charcoal/80 leading-relaxed mb-5">{category.desc}</p>
+
+                  {/* モバイル: 2列 / sm: 3列 / lg: プレビュー横のカラムに収めて2列 */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-x-3 gap-y-4">
+                    {category.items.map((design) => (
+                      <DesignCard
+                        key={design.id}
+                        design={design}
+                        isSelected={design.id === selected.id}
+                        onSelect={setSelected}
                       />
                     ))}
                   </div>
-                </div>
-              </FadeInUp>
-            ))}
+                </FadeInUp>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
-
-
-      {/* Image Modal — Semi-order */}
-      {semiModal && (
-        <ImageModal
-          images={semiModal.images}
-          currentIndex={semiModal.index}
-          onClose={() => setSemiModal(null)}
-          onPrev={() => setSemiModal(p => ({ ...p, index: (p.index - 1 + p.images.length) % p.images.length }))}
-          onNext={() => setSemiModal(p => ({ ...p, index: (p.index + 1) % p.images.length }))}
-        />
-      )}
     </div>
   )
 }
