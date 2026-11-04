@@ -17,10 +17,11 @@ function DesignCard({ design, isSelected, onSelect }) {
       onClick={() => onSelect(design)}
       aria-pressed={isSelected}
       aria-label={`${design.title}を大きく表示`}
-      className="group block w-full self-start text-left cursor-pointer"
+      className="group block w-full h-full text-left cursor-pointer"
     >
+      {/* 縦長と横長が同じ行に並ぶ場合は、高い方に揃えて行間が開かないようにする */}
       <span
-        className={`relative block ${format.aspect} overflow-hidden bg-white border transition-colors duration-300 ${
+        className={`relative block ${format.aspect} w-full h-full overflow-hidden bg-white border transition-colors duration-300 ${
           isSelected ? 'border-gold ring-1 ring-gold' : 'border-greige/40 group-hover:border-gold-light'
         }`}
       >
@@ -41,7 +42,6 @@ function DesignCard({ design, isSelected, onSelect }) {
           {design.id}
         </span>
       </span>
-      <span className="block mt-1.5 font-sans text-xs text-charcoal/80 break-keep">{design.title}</span>
     </button>
   )
 }
@@ -114,7 +114,7 @@ export default function Design() {
                   <p className="font-sans text-sm text-charcoal/80 leading-relaxed mb-5">{category.desc}</p>
 
                   {/* モバイル: 2列 / sm: 3列 / lg: プレビュー横のカラムに収めて2列 */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-x-3 gap-y-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
                     {category.items.map((design) => (
                       <DesignCard
                         key={design.id}
