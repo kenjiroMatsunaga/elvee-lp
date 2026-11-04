@@ -2,7 +2,15 @@ import { useState } from 'react'
 import FadeInUp from '../components/FadeInUp'
 import { designCategories } from '../data/designs'
 
+// 片側ページ（縦長）と見開き（横長）の原寸比率
+const FORMATS = {
+  portrait: { aspect: 'aspect-[1429/2000]', width: 1429, height: 2000 },
+  landscape: { aspect: 'aspect-[2000/1414]', width: 2000, height: 1414 },
+}
+
 function DesignCard({ design, isSelected, onSelect }) {
+  const format = FORMATS[design.orientation]
+
   return (
     <button
       type="button"
@@ -12,15 +20,15 @@ function DesignCard({ design, isSelected, onSelect }) {
       className="group block w-full self-start text-left cursor-pointer"
     >
       <span
-        className={`relative block aspect-[2000/1414] overflow-hidden bg-white border transition-colors duration-300 ${
+        className={`relative block ${format.aspect} overflow-hidden bg-white border transition-colors duration-300 ${
           isSelected ? 'border-gold ring-1 ring-gold' : 'border-greige/40 group-hover:border-gold-light'
         }`}
       >
         <img
           src={design.thumbnail}
           alt=""
-          width="480"
-          height="339"
+          width={format.width}
+          height={format.height}
           loading="lazy"
           decoding="async"
           className="w-full h-full object-contain"
@@ -33,9 +41,7 @@ function DesignCard({ design, isSelected, onSelect }) {
           {design.id}
         </span>
       </span>
-      {design.side && (
-        <span className="block mt-1.5 font-sans text-xs text-charcoal/80">{design.side}</span>
-      )}
+      <span className="block mt-1.5 font-sans text-xs text-charcoal/80 break-keep">{design.title}</span>
     </button>
   )
 }
@@ -78,13 +84,15 @@ export default function Design() {
           <div className="flex flex-col lg:flex-row lg:gap-12">
             {/* メインプレビュー: スクロールしても選択中のデザインを確認できるよう追従させる */}
             <div className="sticky top-16 md:top-20 z-30 -mx-6 px-6 py-3 bg-ivory lg:top-24 lg:z-auto lg:mx-0 lg:px-0 lg:py-0 lg:w-7/12 lg:self-start">
-              <div className="aspect-[2000/1414] max-h-[50vh] lg:max-h-none bg-white border border-greige/40">
+              {/* 枠の高さを固定し、縦長・横長の切り替えで下のカードが動かないようにする */}
+              <div className="flex items-center justify-center h-[40vh] lg:h-[calc(100vh-10rem)]">
                 <img
+                  key={selected.id}
                   src={selected.image}
                   alt={selected.title}
-                  width="2000"
-                  height="1414"
-                  className="w-full h-full object-contain"
+                  width={FORMATS[selected.orientation].width}
+                  height={FORMATS[selected.orientation].height}
+                  className="w-auto h-auto max-w-full max-h-full object-contain bg-white border border-greige/40"
                 />
               </div>
               <div className="flex items-center gap-3 mt-2 lg:mt-4" aria-live="polite">
@@ -92,9 +100,6 @@ export default function Design() {
                   {selected.id}
                 </span>
                 <p className="font-serif text-sm md:text-lg text-charcoal break-keep">{selected.title}</p>
-                {selected.side && (
-                  <p className="ml-auto shrink-0 font-sans text-xs text-charcoal/80">{selected.side}</p>
-                )}
               </div>
             </div>
 
