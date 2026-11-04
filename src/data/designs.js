@@ -54,6 +54,7 @@ export const designCategories = [
       page('B-4', '挨拶', 'greeting'),
       spread('B-5', '挨拶', 'greeting/b-5'),
       page('B-6', '挨拶', 'greeting'),
+      spread('B-7', '挨拶', 'greeting/b-7'),
     ],
   },
   {
@@ -69,6 +70,7 @@ export const designCategories = [
       page('C-5', 'プロフィール', 'profile'),
       page('C-6', 'プロフィール', 'profile'),
       spread('C-7', 'プロフィール', 'profile/c-7'),
+      spread('C-8', 'プロフィール', 'profile/c-8'),
     ],
   },
   {

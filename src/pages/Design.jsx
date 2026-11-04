@@ -2,10 +2,11 @@ import { useState } from 'react'
 import FadeInUp from '../components/FadeInUp'
 import { designCategories } from '../data/designs'
 
-// 片側ページ（縦長）と見開き（横長）の原寸比率
+// 片側ページ（縦長）と見開き（横長）の原寸比率。
+// 縦長は見開き約2枚分の高さのため2行分を占め、隣の空きに次の見開きが入るようにする。
 const FORMATS = {
-  portrait: { aspect: 'aspect-[1429/2000]', width: 1429, height: 2000 },
-  landscape: { aspect: 'aspect-[2000/1414]', width: 2000, height: 1414 },
+  portrait: { aspect: 'aspect-[1429/2000]', width: 1429, height: 2000, rowSpan: 'row-span-2' },
+  landscape: { aspect: 'aspect-[2000/1414]', width: 2000, height: 1414, rowSpan: 'row-span-1' },
 }
 
 function DesignCard({ design, isSelected, onSelect }) {
@@ -17,11 +18,10 @@ function DesignCard({ design, isSelected, onSelect }) {
       onClick={() => onSelect(design)}
       aria-pressed={isSelected}
       aria-label={`${design.title}を大きく表示`}
-      className="group block w-full h-full text-left cursor-pointer"
+      className={`group block w-full text-left cursor-pointer ${format.rowSpan}`}
     >
-      {/* 縦長と横長が同じ行に並ぶ場合は、高い方に揃えて行間が開かないようにする */}
       <span
-        className={`relative block ${format.aspect} w-full h-full overflow-hidden bg-white border transition-colors duration-300 ${
+        className={`relative block ${format.aspect} w-full overflow-hidden bg-white border transition-colors duration-300 ${
           isSelected ? 'border-gold ring-1 ring-gold' : 'border-greige/40 group-hover:border-gold-light'
         }`}
       >
@@ -114,7 +114,7 @@ export default function Design() {
                   <p className="font-sans text-sm text-charcoal/80 leading-relaxed mb-5">{category.desc}</p>
 
                   {/* モバイル: 2列 / sm: 3列 / lg: プレビュー横のカラムに収めて2列 */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 items-start">
                     {category.items.map((design) => (
                       <DesignCard
                         key={design.id}
