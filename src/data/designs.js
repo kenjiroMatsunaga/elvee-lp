@@ -13,7 +13,7 @@ function page(id, label, dir) {
   }
 }
 
-// 横長の見開き画像（public/images/designs/<name>.png）
+// 横長の見開き画像（public/images/designs/<name>.png。name はカテゴリ配下なら '<dir>/<id>' 形式）
 function spread(id, label, name) {
   return {
     id,
@@ -52,6 +52,8 @@ export const designCategories = [
       page('B-2', '挨拶', 'greeting'),
       page('B-3', '挨拶', 'greeting'),
       page('B-4', '挨拶', 'greeting'),
+      spread('B-5', '挨拶', 'greeting/b-5'),
+      page('B-6', '挨拶', 'greeting'),
     ],
   },
   {
@@ -66,6 +68,7 @@ export const designCategories = [
       page('C-4', 'プロフィール', 'profile'),
       page('C-5', 'プロフィール', 'profile'),
       page('C-6', 'プロフィール', 'profile'),
+      spread('C-7', 'プロフィール', 'profile/c-7'),
     ],
   },
   {
@@ -95,6 +98,7 @@ export const designCategories = [
       page('E-4', 'メニュー', 'menu'),
       page('E-5', 'メニュー', 'menu'),
       page('E-6', 'メニュー', 'menu'),
+      page('E-7', 'メニュー', 'menu'),
     ],
   },
   {
@@ -118,11 +122,12 @@ export const designCategories = [
     labelEn: 'Free Page',
     desc: 'ラブストーリーやフォトコラージュなど、お二人らしさを自由に表現できるページです。',
     items: [
-      spread('G-1', 'フリーページ', 'template-07-04'),
+      page('G-1', 'フリーページ', 'free'),
       page('G-2', 'フリーページ', 'free'),
       page('G-3', 'フリーページ', 'free'),
       page('G-4', 'フリーページ', 'free'),
-      spread('G-5', 'フリーページ', 'template-09-02'),
+      page('G-5', 'フリーページ', 'free'),
+      spread('G-6', 'フリーページ', 'template-09-02'),
     ],
   },
 ]
